@@ -15,3 +15,47 @@ hr {
   border: none;
   height: 1px;
 }
+
+#historyDiv > div {
+  background: whitesmoke;
+  display: flex;
+  margin: 1ex;
+  padding: 1ex;
+}
+
+#historyDiv > div > div {
+  flex: 1;
+  font-family: monospace;
+}
+
+#historyDiv > div.before::before {
+  color: gray;
+  content: 'Before:';
+  display: inline-block;
+  width: 10ex;
+}
+
+#historyDiv > div.after::before {
+  color: gray;
+  content: 'After:';
+  display: inline-block;
+  width: 10ex;
+}
+
+#historyDiv > div > div::before {
+  color: gray;
+  display: block;
+  font: icon;
+}
+
+#historyDiv > div > div:nth-child(1)::before {
+  content: 'innerHTML';
+}
+
+#historyDiv > div > div:nth-child(2)::before {
+  content: 'innerText';
+}
+
+#historyDiv > div > div:nth-child(3)::before {
+  content: 'textContent';
+}

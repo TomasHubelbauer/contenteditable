@@ -24,9 +24,22 @@ process when working with range selection and wait for the range to collapse to
 a caret again and then do my magic. This is sufficient from UX perspective of my
 needs.
 
-## To-Do
+## Findings
 
-### Remove useless `<br />` and `<div>`s which can be replaced with CSS
+When there is only as single paragraph (prior to the first Enter key press),
+`contenteditable` needs a `br` at the end to preserve trailing space (s?), if it
+is removed, the trailing space (s?) will get trimmed. Therefore the trailing
+`br` needs to be left intact when a direct child of the editor.
+
+---
+
+When there are multiple paragraphs, each one gets wrapped in a `div`, but each
+also gets a `br` at the end like in the single-paragraph case. This `br` causes
+`innerText` to report two newlines (`\n\n`), one for the `br` and one for the
+end of the `div`. These `br` might potentially be removable without the loss of
+the trailing space (s?) like in the single-paragraph case.
+
+## To-Do
 
 ### Prototype highlighting / wrapping some portions with widgets on each edit
 
