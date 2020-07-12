@@ -36,8 +36,10 @@ is removed, the trailing space (s?) will get trimmed. Therefore the trailing
 When there are multiple paragraphs, each one gets wrapped in a `div`, but each
 also gets a `br` at the end like in the single-paragraph case. This `br` causes
 `innerText` to report two newlines (`\n\n`), one for the `br` and one for the
-end of the `div`. These `br` might potentially be removable without the loss of
-the trailing space (s?) like in the single-paragraph case.
+end of the `div`. This does not happen for the last `div` with `br` in it, that
+one reports just one newline (`\n`) in `innerText`. These `br`s might be
+removable without the loss of the trailing space (s?) like in the
+single-paragraph case.
 
 ## To-Do
 
