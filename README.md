@@ -55,3 +55,21 @@ The useless HTML removal process will be simpler if it's made to remove pretty
 much all HTML and just leave in the text and significant white-space, but the
 wrappers and widgets can be reapplied after each run which should result in a
 smooth experience across edits.
+
+### Test out removing the `br`s trailing paragraph `div`s to see if they matter
+
+Perhaps they will be safe to remove without the loss of the trailing white-space
+in those paragraph `div`s (if any) and that way no extra `\n` will appear in
+`innerText`.
+
+To do this, a recursive process over the descendants needs to be run and the
+caret needs to be shifted each time the `br` is removed to keep the selection
+stable.
+
+### Consider not adjusting the `contenteditable` DOM structure only attributes
+
+To keep the presentation stable (plain text input), we could actively remove
+HTML attributes which we don't want (AKA pretty much all of them) and just
+capture the HTML output of the editor knowing it is going to be clean. Then it
+can be stored as HTML or parsed at the known controlled HTML subset and stored
+in a different format (MarkDown?).
