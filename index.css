@@ -1,0 +1,17 @@
+body {
+  font: icon;
+}
+
+div[contenteditable="true"] {
+  background: whitesmoke;
+  border: 1px solid silver;
+  padding: 1ex;
+  position: sticky;
+  top: 0;
+}
+
+hr {
+  background: gray;
+  border: none;
+  height: 1px;
+}
